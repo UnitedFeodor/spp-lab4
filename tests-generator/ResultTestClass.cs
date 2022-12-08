@@ -2,12 +2,12 @@
 
 namespace tests_generator
 {
-    public class GeneratedTestClass
+    public class ResultTestClass
     {
-        public string FileName { get; set}
-        public string SourceCode { get; set}
+        public string FileName { get; set; }
+        public string SourceCode { get; set; }
 
-        public GeneratedTestClass(string fileName, string sourceCode)
+        public ResultTestClass(string fileName, string sourceCode)
         {
             this.FileName = fileName;
             this.SourceCode = sourceCode;

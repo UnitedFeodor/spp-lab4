@@ -16,12 +16,14 @@ namespace tests_generator
         private Dictionary<ClassDeclarationSyntax, List<NamespaceDeclarationSyntax>> _namespaceClasses = new();
 
 
-        TestsGenerator(String sourceCode)
+        public TestsGenerator(String sourceCode)
         {
             _sourceCode = sourceCode;
 
             Setup();
         }
+
+
 
         public void Setup()
         {
@@ -38,7 +40,7 @@ namespace tests_generator
 
         }
 
-        public List<ResultTestClass> FillResultTestClasses()
+        public List<ResultTestClass> Generate()
         {
             List<ResultTestClass> list = new();
             
@@ -55,7 +57,7 @@ namespace tests_generator
 
         private MemberDeclarationSyntax FillTestClass(ClassDeclarationSyntax classDeclaration)
         {
-            var classNamespace = _namespaceClasses[classDeclaration][0];
+            var classNamespace = _namespaceClasses[classDeclaration].Last().RemoveNodes(_namespaceClasses[classDeclaration].Last().DescendantNodes(),0);
 
             var resultMethods = new List<MemberDeclarationSyntax>();
             var methods = _classMethods[classDeclaration];
@@ -72,11 +74,12 @@ namespace tests_generator
                 string.Compare(method1.Key.Identifier.Text, method2.Key.Identifier.Text, StringComparison.Ordinal));
 
             int index = 0;
-            string methodName = methodName = methodNamesList[0].Key.Identifier.Text; ;
+            string methodName = methodNamesList[0].Key.Identifier.Text; ;
 
             for (var i = 0; i < methods.Count; i++)
             {
-                if (methodNamesList[i].Value != 1 && methodName == methodNamesList[i].Key.Identifier.Text)
+                if (methodNamesList[i].Value != 1 && (methodName == methodNamesList[i].Key.Identifier.Text
+                    || index != 0))
                 {
                     index++;
 
