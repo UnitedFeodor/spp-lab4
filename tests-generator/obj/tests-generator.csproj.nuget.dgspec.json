@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\5 sem\\spp\\lab4\\spp-lab4\\tests-generator\\tests-generator.csproj",
         "projectName": "tests-generator",
         "projectPath": "D:\\5 sem\\spp\\lab4\\spp-lab4\\tests-generator\\tests-generator.csproj",
-        "packagesPath": "C:\\Users\\Пользователь.DESKTOP-Q0U0VUP\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\fedor\\.nuget\\packages\\",
         "outputPath": "D:\\5 sem\\spp\\lab4\\spp-lab4\\tests-generator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Пользователь.DESKTOP-Q0U0VUP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fedor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.CSharp": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
