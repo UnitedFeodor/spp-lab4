@@ -57,7 +57,10 @@ namespace tests_generator
 
         private MemberDeclarationSyntax FillTestClass(ClassDeclarationSyntax classDeclaration)
         {
-            var classNamespace = _namespaceClasses[classDeclaration].Last().RemoveNodes(_namespaceClasses[classDeclaration].Last().DescendantNodes(),0);
+            //var classNamespace = _namespaceClasses[classDeclaration].Last();
+            var namespaceName = _namespaceClasses[classDeclaration].Last().Name;
+            
+            var classNamespace = NamespaceDeclaration(QualifiedName(namespaceName, IdentifierName("Tests"))); ;
 
             var resultMethods = new List<MemberDeclarationSyntax>();
             var methods = _classMethods[classDeclaration];
