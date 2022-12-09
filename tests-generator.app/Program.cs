@@ -41,7 +41,10 @@ string[] filePaths = Directory.GetFiles(dir + "\\FilesToTest\\");
 foreach (string filePath in filePaths)
 {
     if (filePath.EndsWith(".cs"))
+    {
         readAllText.Post(filePath);
+    }  
 }
+
 readAllText.Complete();
 saveTestFiles.Completion.Wait();
