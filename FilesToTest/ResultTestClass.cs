@@ -47,3 +47,25 @@ namespace Mike
 		
     }
 }
+
+namespace Finger
+{
+	public class Kid
+	{
+	
+
+		public void hi(int a, string b)
+		{
+			
+		}
+	}
+
+	public class Named
+	{
+		public string ha()
+        {
+			return "ha";
+        }
+
+	}
+}
